@@ -1,4 +1,4 @@
-function applicationState($stateProvider) {
+function detailRoute($stateProvider) {
     return $stateProvider
         .state('app', {
             url: '/',
@@ -6,6 +6,7 @@ function applicationState($stateProvider) {
             views: {
                 application: {
                     template: '<ui-view name="main"></ui-view>',
+                    controller: 'ApplicationController as appController'
                 }
             }
         });
@@ -13,5 +14,5 @@ function applicationState($stateProvider) {
 
 export default [
     '$stateProvider',
-    applicationState
+    detailRoute
 ];
