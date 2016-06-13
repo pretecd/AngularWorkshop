@@ -12,6 +12,7 @@ import applicationState from './application-state';
 import ApplicationController from './application-controller';
 import httpProvider from './http-provider';
 import AuthenticationService from './authentication-service';
+import addressBookComponent from 'components/address-book';
 
 const dependencies = [
     'ngCookies',
@@ -19,7 +20,8 @@ const dependencies = [
     welcomeComponent.name,
     contactListComponent.name,
     contactDetailComponent.name,
-    loginComponent.name
+    loginComponent.name,
+    addressBookComponent.name
 ];
 
 export default angular
