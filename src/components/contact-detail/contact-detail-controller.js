@@ -1,15 +1,23 @@
 class ContactDetailController {
-    constructor($stateParams) {
-        let [firstName, lastName] = $stateParams.name.split(' ');
-        
-        this.contact = {
-            first_name: firstName,
-            last_name: lastName
-        };
+    constructor($stateParams, ContactService) {
+    	this.contactService = ContactService;
+    	var details = this.contactService.detailContact($stateParams.id);
+    	if(details)
+    	{
+    		details.then(response => {
+	        	this.contact = response.data;
+	        });
+    	}
+    }
+
+    saveContact()
+    {
+    	this.contactService.saveOrUpdate(this.contact);
     }
 }
 
 export default [
     '$stateParams',
+    'ContactService',
     ContactDetailController
 ];
